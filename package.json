@@ -1,0 +1,48 @@
+{
+  "name": "invertible",
+  "version": "1.0.0",
+  "description": "Create invertible functions",
+  "main": "index.js",
+  "repository": "git@github.com:mobalt/invertible.git",
+  "author": "Moises Baltazar <me@moisesb.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "lint": "prettier-eslint '**/*.{js,json}' --list-different --write",
+    "test": "mocha --require esm"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "esm": ">=3.2.25",
+    "mocha": "^6.2.0",
+    "prettier-eslint": "^9.0.0",
+    "prettier-eslint-cli": "^5.0.0"
+  },
+  "mocha": {
+    "color": true,
+    "spec": "test/**/*.spec.js",
+    "slow": 75,
+    "timeout": 2000,
+    "reporter": "list",
+    "require": [
+      "esm"
+    ],
+    "ui": "bdd",
+    "watch": false
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": "*.{yml,yaml,json}",
+        "options": {
+          "tabWidth": 2
+        }
+      }
+    ]
+  }
+}
