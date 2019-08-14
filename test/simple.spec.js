@@ -1,5 +1,5 @@
 import 'chai/register-should'
-import { simple_inv } from '../src/simple'
+import simple_inv from '../src/simple'
 
 describe('#simple_inv', () => {
     const context = {
@@ -19,13 +19,13 @@ describe('#simple_inv', () => {
 
     const simple = simple_inv({
         context,
-        fn: make_me_simple
+        fn: make_me_simple,
     })
 
     it('can do forwards', () => {
         simple({ x: 3 }).should.deep.equal({ y: 20 })
     })
-    it ('can do backwards', ()=>{
+    it('can do backwards', () => {
         simple.inv({ y: 17 }).should.deep.equal({ x: 5 })
     })
 })

@@ -1,6 +1,6 @@
 import 'chai/register-should'
 import inv from '../src/main'
-import { isInvertibleFn, requireInvertibleFns } from '../src/checks'
+import isInvertibleFn, { requireInvertibleFns } from '../src/checks'
 
 const normal = x => x
 const invertible = inv(x => x)

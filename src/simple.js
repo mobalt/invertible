@@ -1,8 +1,8 @@
 import invertible_fn from './main'
-import { isInvertibleFn } from './checks'
+import isInvertibleFn from './checks'
 import { findProp } from './helpers'
 
-export function simple_inv({ context, fn }) {
+export default function simple_inv({ context, fn }) {
     const forwardCx = {},
         backCx = {}
 

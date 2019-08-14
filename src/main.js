@@ -1,4 +1,4 @@
-import { isInvertibleFn } from './checks'
+import isInvertibleFn from './checks'
 
 function setProperties(fn, invFn) {
     return Object.defineProperties(fn, {

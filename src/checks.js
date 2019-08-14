@@ -1,4 +1,4 @@
-export function isInvertibleFn(fn) {
+export default function isInvertibleFn(fn) {
     return (
         typeof fn === 'function' &&
         typeof fn.inv === 'function' &&
