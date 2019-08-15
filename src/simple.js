@@ -1,6 +1,5 @@
 import invertible_fn from './main'
 import isInvertibleFn from './checks'
-import { findProp } from './helpers'
 
 export default function simple_inv({ context, fn }) {
     const forwardCx = {},
@@ -41,4 +40,17 @@ export default function simple_inv({ context, fn }) {
     }
 
     return invertible_fn(fn.bind(forwardCx), fn.bind(backCx))
+}
+
+/**
+ * Find first property that matches from a list of possible property names
+ * @param {{}} obj
+ * @param {string[]} possibleNames
+ * @returns {undefined|*} value
+ */
+function findProp(obj, possibleNames) {
+    for (const p in possibleNames) {
+        if (obj.hasOwnProperty(p)) return obj[p]
+    }
+    return undefined
 }
