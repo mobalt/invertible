@@ -1,4 +1,4 @@
 export { default } from './src/main'
-export simple from './src/simple'
-export check, { requireInvertibleFns } from './src/checks'
-export pipe from './src/pipe'
+export { default as simple } from './src/simple'
+export { default as check, requireInvertibleFns } from './src/checks'
+export { default as pipe } from './src/pipe'
