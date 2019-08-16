@@ -1,7 +1,6 @@
 import 'chai/register-should'
-import { convert_prop } from '../src/properties'
 import seq from '../src/sequence'
-import { sub } from '../src/descend'
+import sub from '../src/descend'
 
 describe('properties.js', () => {
     const usdYen = sub('USD', 'YEN', usd => 100 * usd, yen => yen / 100)

@@ -1,6 +1,6 @@
 import inv, { simple as simple_inv } from 'invertible'
 
-export function sub(x, y, forwardFn, inverseFn) {
+export default function sub(x, y, forwardFn, inverseFn) {
     return simple_inv({
         context: {
             read_prop: [x, y],

@@ -6,7 +6,7 @@ import { simple as simple_inv } from 'invertible'
  * @param {string} y
  * @returns {{}}
  */
-export function convert_prop(x, y) {
+export default function convert_prop(x, y) {
     return simple_inv({
         context: { read_prop: [x, y], write_prop: [y, x] },
         fn: __internal_property_conversion_fn__,

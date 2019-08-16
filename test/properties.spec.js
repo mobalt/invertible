@@ -1,5 +1,5 @@
 import 'chai/register-should'
-import { convert_prop } from '../src/properties'
+import convert_prop from '../src/properties'
 import seq from '../src/sequence'
 
 describe('properties.js', () => {
