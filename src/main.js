@@ -29,5 +29,6 @@ export default function inv(forward, reverse) {
     if (isInvertibleFn(forward)) return forward
     else if (reverse === undefined) return identity_fn(forward)
     else if (reverse === false) return oneway_fn(forward)
+    else if (forward === false) return oneway_fn(reverse).inv
     else return invertible_fns(forward, reverse)
 }
