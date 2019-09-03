@@ -1,6 +1,6 @@
 import inv, { simple as simple_inv } from 'invertible'
 
-export default function sub(x, y, forwardFn, inverseFn) {
+export default function descend(x, y, forwardFn, inverseFn) {
     return simple_inv({
         context: {
             read_prop: [x, y],
@@ -12,12 +12,11 @@ export default function sub(x, y, forwardFn, inverseFn) {
 }
 
 function __descend__(args) {
-    const { input, output } = args
-    const value = input[this.read_prop]
+    const input = args.input[this.read_prop]
 
-    // TODO: should the customFn always run, even on value === undefined? make it a config
-    if (value !== undefined) {
-        const result = this.customFn(value, { input: value, output })
+    // TODO: should the customFn always run, even on input === undefined? make it a config
+    if (input !== undefined) {
+        const result = this.customFn(input, { input, output: {} })
 
         // TODO: if result is undefined, should it be ignored? stored as undefined? or should it be deleted? #config
         if (result !== undefined) {

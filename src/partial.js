@@ -16,15 +16,14 @@ export default function partial(forwardFn, inverseFn) {
     if (inverseFn === false) inverseFn = () => undefined
 
     return simple_inv({
-        context: { fn: inv(forwardFn, inverseFn) },
+        context: { customFn: inv(forwardFn, inverseFn) },
         fn: __partial__,
     })
 }
 
 function __partial__(args) {
-    const tmp = this.fn(args.input, args)
-    // console.log('tmp::', tmp, args)
-    merge_objects(args.output, tmp)
+    const partial_result = this.customFn(args.input, args)
+    merge_objects(args.output, partial_result)
     return args
 }
 
