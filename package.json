@@ -2,6 +2,7 @@
   "name": "invertible",
   "version": "0.1.1",
   "description": "Create invertible functions",
+  "type": "module",
   "main": "index.js",
   "repository": "git@github.com:mobalt/invertible.git",
   "author": "Moises Baltazar <me@moisesb.com>",
