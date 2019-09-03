@@ -17,23 +17,23 @@ function isEmpty(obj) {
 function __map__(args) {
     const inputArray = args.input[this.read_prop]
 
-    // TODO: #config
     if (Array.isArray(inputArray)) {
         const outputArray = []
         let index = 0
         for (const input of inputArray) {
             const newArgs = { input, output: {} }
-            const raw = this.customFn(newArgs, {input: inputArray, output: outputArray, index}, args)
+            const result = this.customFn(
+                newArgs,
+                { input: inputArray, output: outputArray, index },
+                args,
+            )
 
-            // TODO: #config
-            // also, what if saving an empty object is the desired behavior?
-            if (raw && !isEmpty(raw.output)) {
-                outputArray.push(raw.output)
+            if (result && !isEmpty(result.output)) {
+                outputArray.push(result.output)
             }
-            index ++
+            index++
         }
 
-        // TODO: #config
         if (outputArray.length) {
             args.output[this.write_prop] = outputArray
         }
