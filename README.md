@@ -1,26 +1,44 @@
 # Invertible
 
-Create functions and their inverse in parallel.
+A library to develop functions and their inverse simultaneously.
+
+## Features
+
+- Link forward/inverse functions
+- Create a chain of invertible functions
+- Easily transform objects between two schemas
+
+## Installing
+
+Using yarn:
+
+```bash
+$ yarn add mobalt/invertible
+```
 
 ## Usage
-### default
-To link two functions together use the default function.
+Invertible functions act just like normal functions with the added benefit of their inverse readily available as an immutable property, `.inv`.
 
 ```node
 import inv from 'invertible'
 
-const double = x => x * 2
-const half = x => x / 2
+// normally a developer has to keep relationships in brainspace
+const double = (x) => x * 2
+const halve  = (x) => x * 2
+double(9) === 18
+halve(100) === 50
 
-// invertible function
-const two = inv(double, half)
+// but by linking the two functions, 
+//  now the relationship is more obvious and convenient
+const fn = inv(double, halve)
+fn(9) === 18
+fn.inv(100) === 50
 
-console.log(two(9))            // 18
-console.log(two.inv(60))       // 30
-console.log(two.inv.inv(60))   // 120
+// the `.inv` function also has an `.inv` reference back
+fn.inv.inv(100) === fn(100)
 ```
 
-### simple
+### inv.simple({context:{}, fn: function})
 Sometimes a function doesn't have complex inverse logic. However, even though forward and inverse functions can use the same logic, they require different internal constants or contexts. These functions benefit from using the `simple` factory.
 
 ```node
