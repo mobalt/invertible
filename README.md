@@ -106,7 +106,10 @@ essentially means make no changes.
 Takes care of wrapping the first input in an accumulator wrapper
 (`{input: {}, output: {}}`).
 
-### partial
+### partial(forwardFn, inverseFn)
+This function provides two conveniences:
+1. Takes two params, first param is raw `input` subobject. Second param is the normal accumulator param `{input:{}, output:{}}`.
+2. Rather than returning the accumulator object, the function returns just a delta of the `output` subobject. The delta is then merged into the full output object.
 
 ### simpleton(forwardFn, inverseFn)
 Similar to **partial** the only difference is that the return value becomes
@@ -118,17 +121,29 @@ Defined in `properties.js`.
 If left_name exists on left obj, then save it to right obj as right_name.
 If it does not, make sure it does not exist on right obj either.
 
-### descend
+### descend( x, y, forwardFn, inverseFn )
+* If x is defined, run it through invertible function with params of ({input:input[x],output:{}}, {input, output})
+* If result is defined, set output[y] = result.output
 
-### dive
+### dive( x, y, forwardFn, inverseFn )
+* A convenience function that accomplishes the same thing as descend combined with partial.
+* descend(x,y,simpleton(forwardFn, inverseFn))
+* If result is defined, set output[y] = result
 
-### map
+### map( x, y, forwardFn, inverseFn )
+* If x is array, continue.
+* For each element in input[x], run customFn({input: input[x], output: {}})
+* Store result.output to array
 
-### TODO mapDict
+### mapDict( x, y, levels, inverseFn )
+* x should be array propname
+* y is dictname
+* levels is array of prop names in elements of x, that should produce hiearachy in y
 
-### TODO snap(left_name, right_name, lookup)
+### snap(left_name, right_name, lookup)
+Use lookup array
 
-### TODO cond
+### cond
 
 ## Development
 
