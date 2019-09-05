@@ -1,19 +1,20 @@
 import 'chai/register-should'
-import seq from '../src/sequence'
 import map from '../src/map'
-import inv, { pipe } from 'invertible'
+import wrap from '../src/wrap'
+import inv from '../src/inv'
+import pipe from '../src/pipe'
 import convert_prop from '../src/properties'
 
 describe('map.js', () => {
     it('can map one list onto another list', () => {
-        const f = seq(map('list', 'LIST', inv(x => ({ output: x.input }))))
+        const f = wrap(map('list', 'LIST', inv(x => ({ output: x.input }))))
 
         f({ list: [{ x: 2 }, { y: 3 }] }).should.deep.equal({
             LIST: [{ x: 2 }, { y: 3 }],
         })
     })
     it('can apply multiple filters using pipe', () => {
-        const f = seq(
+        const f = wrap(
             map(
                 'old_list',
                 'new_list',

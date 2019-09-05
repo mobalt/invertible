@@ -1,5 +1,5 @@
 import { requireInvertibleFns } from './checks'
-import invertible_fns from './main'
+import invertible_fns from './inv'
 
 export default function pipe(...functions) {
     requireInvertibleFns(...functions)

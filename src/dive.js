@@ -1,4 +1,5 @@
-import inv, { simple as simple_inv } from 'invertible'
+import simple_inv from './simple'
+import inv from './inv'
 
 export default function dive(x, y, forwardFn, inverseFn) {
     return simple_inv({
@@ -7,7 +8,7 @@ export default function dive(x, y, forwardFn, inverseFn) {
             write_prop: [y, x],
             customFn: inv(forwardFn, inverseFn),
         },
-        fn: __descend__,
+        fn: __dive__,
     })
 }
 

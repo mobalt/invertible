@@ -1,4 +1,4 @@
-import invertible_fn from './main'
+import invertible_fn from './inv'
 import isInvertibleFn from './checks'
 
 export default function simple_inv({ context, fn }) {

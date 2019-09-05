@@ -1,4 +1,5 @@
-import inv, { simple as simple_inv } from 'invertible'
+import simple_inv from './simple'
+import inv from './inv'
 
 export default function descend(x, y, forwardFn, inverseFn) {
     return simple_inv({

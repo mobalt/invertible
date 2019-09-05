@@ -1,10 +1,10 @@
 import 'chai/register-should'
 import partial from '../src/partial'
 import convert_prop from '../src/properties'
-import seq from '../src/sequence'
+import wrap from '../src/wrap'
 
 describe('partial.js', () => {
-    const f = seq(
+    const f = wrap(
         convert_prop('x', 'original_x'),
         partial(input => {
             return {

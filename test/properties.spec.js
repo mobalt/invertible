@@ -1,10 +1,10 @@
 import 'chai/register-should'
 import convert_prop from '../src/properties'
-import seq from '../src/sequence'
+import wrap from '../src/wrap'
 
 describe('properties.js', () => {
     it('can do simple object property mapping', () => {
-        const propCon = seq(
+        const propCon = wrap(
             convert_prop('old', 'new'),
             convert_prop('black', 'white'),
             convert_prop('ying', 'yang'),

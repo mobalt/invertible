@@ -1,4 +1,4 @@
-import { simple } from 'invertible'
+import simple from './simple'
 
 export default function conditional(ifFn, thenFn, elseFn) {
     return simple({

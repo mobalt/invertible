@@ -1,7 +1,7 @@
 import 'chai/register-should'
 import simple_inv from '../src/simple'
 
-describe('#simple_inv', () => {
+describe('simple.js', () => {
     const context = {
         from: ['x', 'y'],
         to: ['y', 'x'],

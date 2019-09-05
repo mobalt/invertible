@@ -1,5 +1,5 @@
 import 'chai/register-should'
-import inv from '../src/main'
+import inv from '../src/inv'
 import pipe from '../src/pipe'
 
 const addTwo = inv(x => x + 2, x => x - 2)
@@ -8,7 +8,7 @@ const double = inv(x => x + x, x => x / 2)
 const triple = inv(x => 3 * x, x => x / 3)
 const quadruple = inv(x => 4 * x, x => x / 4)
 
-describe('#pipe', () => {
+describe('pipe.js', () => {
     describe('can be used for math', () => {
         it('can do simple (commutative) math functions', () => {
             const multiply6 = pipe(

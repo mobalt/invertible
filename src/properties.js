@@ -1,4 +1,4 @@
-import { simple as simple_inv } from 'invertible'
+import simple_inv from './simple'
 
 /**
  *

@@ -1,4 +1,5 @@
-import inv, { simple as simple_inv } from 'invertible'
+import inv from './inv'
+import simple_inv from './simple'
 
 /**
  * The result of a partial will merged into the output object.

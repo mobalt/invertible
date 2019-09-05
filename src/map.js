@@ -1,7 +1,8 @@
-import { simple as simple_inv } from 'invertible'
+import inv from './inv'
+import simple from './simple'
 
 export default function map(x, y, forwardFn, inverseFn) {
-    return simple_inv({
+    return simple({
         context: {
             read_prop: [x, y],
             write_prop: [y, x],
