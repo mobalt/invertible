@@ -18,7 +18,8 @@ $ yarn add mobalt/invertible
 
 ## Usage
 ### inv(forwardFn, inverseFn)
-Invertible functions act just like normal functions with the added benefit of their inverse readily available as an immutable property, `.inv`.
+Invertible functions act just like normal functions with the added benefit of
+their inverse readily available as an immutable property, `.inv`.
 
 ```node
 import inv from 'invertible'
@@ -29,7 +30,7 @@ const halve  = (x) => x * 2
 double(9) === 18
 halve(100) === 50
 
-// but by linking the two functions, 
+// but by linking the two functions,
 //  now the relationship is more obvious and convenient
 const fn = inv(double, halve)
 fn(9) === 18
@@ -89,6 +90,40 @@ iPipe.inv(13) === 1   // since LIFO, not 3.333 (LILO)
 ```
 
 
+# Working with Objects
+It is also possible to create an invertible transform function that converts
+objects from one schema to another and back. The benefit of doing this is
+*idempotency*.
+
+## How it works
+Internally, the pipe of transforming functions behave like *reduce* functions
+passing an accumulator object that contains two sub-objects, input and output.
+> **NOTE:** All internal transform functions must accept a sole param
+({input:{}, output:{}}). They must return that same object. Returning `undefined`
+essentially means make no changes.
+
+### TODO wrap(...fns)
+
+### TODO simpleton
+
+### partial
+
+### convert_prop(left_name, right_name)
+Defined in `properties.js`.
+If left_name exists on left obj, then save it to right obj as right_name.
+If it does not, make sure it does not exist on right obj either.
+
+### descend
+
+### dive
+
+### map
+
+### TODO mapDict
+
+### TODO snap(left_name, right_name, lookup)
+
+### TODO cond
 
 ## Development
 
