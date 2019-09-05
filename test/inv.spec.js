@@ -1,7 +1,7 @@
 import 'chai/register-should'
-import inv, { invertible_fns, identity_fn, oneway_fn } from '../src/main'
+import inv, { invertible_fns, identity_fn, oneway_fn } from '../src/inv'
 
-describe('src/main', () => {
+describe('inv.js', () => {
     describe('can keep track of inverse functions', () => {
         const double = x => x * 2
         const half = x => x / 2
