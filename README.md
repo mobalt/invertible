@@ -102,7 +102,9 @@ passing an accumulator object that contains two sub-objects, input and output.
 ({input:{}, output:{}}). They must return that same object. Returning `undefined`
 essentially means make no changes.
 
-### TODO wrap(...fns)
+### wrap(...fns)
+Takes care of wrapping the first input in an accumulator wrapper
+(`{input: {}, output: {}}`).
 
 ### TODO simpleton
 
