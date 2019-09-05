@@ -106,9 +106,12 @@ essentially means make no changes.
 Takes care of wrapping the first input in an accumulator wrapper
 (`{input: {}, output: {}}`).
 
-### TODO simpleton
-
 ### partial
+
+### simpleton(forwardFn, inverseFn)
+Similar to **partial** the only difference is that the return value becomes
+the output. *partial* doesn't take the return value at face-value rather it
+attempts to merge it.
 
 ### convert_prop(left_name, right_name)
 Defined in `properties.js`.
